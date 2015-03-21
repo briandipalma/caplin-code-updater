@@ -2,7 +2,7 @@
   "name": "caplin-code-updater",
   "version": "1.0.0",
   "description": "Tool to automate the updating of deprecated Caplin APIs with newer APIs in CJS modules",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/. test/.",
     "build": "npm run lint && npm run test && npm run compile",
@@ -26,5 +26,6 @@
     "eslint": "^0.17.1",
     "mocha": "^2.2.1",
     "rimraf": "^2.3.2"
-  }
+  },
+  "bin": "./bin/caplin-code-updater-cli.js"
 }
