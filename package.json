@@ -1,0 +1,30 @@
+{
+  "name": "caplin-code-updater",
+  "version": "1.0.0",
+  "description": "Tool to automate the updating of deprecated Caplin APIs with newer APIs in CJS modules",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/. test/.",
+    "build": "npm run lint && npm run test && npm run compile",
+    "test": "mocha --compilers js:babel/register test/**",
+    "test:debug": "node --debug _mocha",
+    "precompile": "rimraf dist",
+    "compile": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/briandipalma/caplin-code-updater.git"
+  },
+  "author": "Brian Di Palma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briandipalma/caplin-code-updater/issues"
+  },
+  "homepage": "https://github.com/briandipalma/caplin-code-updater",
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "eslint": "^0.17.1",
+    "mocha": "^2.2.1",
+    "rimraf": "^2.3.2"
+  }
+}
