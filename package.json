@@ -7,7 +7,7 @@
     "lint": "eslint src/. test/.",
     "build": "npm run lint && npm run test && npm run compile",
     "test": "mocha --compilers js:babel/register test/**",
-    "test:debug": "node --debug _mocha",
+    "test:debug": "node --debug ./node_modules/.bin/_mocha --compilers js:babel/register test/**",
     "precompile": "rimraf dist",
     "compile": "babel src --out-dir dist"
   },
@@ -25,10 +25,12 @@
     "babel": "^4.7.16",
     "eslint": "^0.17.1",
     "mocha": "^2.2.1",
-    "rimraf": "^2.3.2"
+    "rimraf": "^2.3.2",
+    "sinon": "^1.14.1"
   },
   "bin": "./bin/caplin-code-updater-cli.js",
   "dependencies": {
+    "recast": "^0.10.11",
     "through2": "^0.6.3",
     "winston": "^0.9.0"
   }
