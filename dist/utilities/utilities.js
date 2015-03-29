@@ -12,6 +12,14 @@
 "use strict";
 
 exports.visitASTAndPushToNextStream = visitASTAndPushToNextStream;
+
+/**
+ * Visits AST using provided visitor, if an error occurs it will be logged.
+ *
+ * @param {RecastAST}     ast     Recast AST
+ * @param {RecastVisitor} visitor Recast AST visitor
+ */
+exports.visitAST = visitAST;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -32,4 +40,13 @@ function visitASTAndPushToNextStream(fileMetadata, visitor, streamTransform, cal
 
 	streamTransform.push(fileMetadata);
 	callback();
+}
+
+function visitAST(ast, visitor) {
+	try {
+		visit(ast, visitor);
+	} catch (visitorError) {
+		error(visitor);
+		error(visitorError);
+	}
 }

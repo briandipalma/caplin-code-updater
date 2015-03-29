@@ -1,1 +1,4 @@
-export {visitASTAndPushToNextStream} from './utilities/utilities';
+export {
+	visitAST,
+	visitASTAndPushToNextStream
+} from './utilities/utilities';

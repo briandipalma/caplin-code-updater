@@ -23,3 +23,18 @@ export function visitASTAndPushToNextStream(fileMetadata, visitor, streamTransfo
 	streamTransform.push(fileMetadata);
 	callback();
 }
+
+/**
+ * Visits AST using provided visitor, if an error occurs it will be captured and logged.
+ *
+ * @param {RecastAST}     ast     Recast AST
+ * @param {RecastVisitor} visitor Recast AST visitor
+ */
+export function visitAST(ast, visitor) {
+	try {
+		visit(ast, visitor);
+	} catch (visitorError) {
+		error(visitor);
+		error(visitorError);
+	}
+}
