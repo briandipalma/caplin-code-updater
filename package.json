@@ -23,7 +23,7 @@
   "homepage": "https://github.com/briandipalma/caplin-code-updater",
   "devDependencies": {
     "babel": "^4.7.16",
-    "eslint": "^0.17.1",
+    "eslint": "^0.18.0",
     "mocha": "^2.2.1",
     "rimraf": "^2.3.2",
     "sinon": "^1.14.1"
