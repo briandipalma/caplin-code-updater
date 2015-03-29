@@ -14,7 +14,7 @@
 exports.visitASTAndPushToNextStream = visitASTAndPushToNextStream;
 
 /**
- * Visits AST using provided visitor, if an error occurs it will be logged.
+ * Visits AST using provided visitor, if an error occurs it will be captured and logged.
  *
  * @param {RecastAST}     ast     Recast AST
  * @param {RecastVisitor} visitor Recast AST visitor
