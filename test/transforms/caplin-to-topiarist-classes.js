@@ -46,4 +46,20 @@ describe('caplin-to-topiarist-classes', () => {
 		// Then.
 		equal(print(moduleAST).code, 'topiarist.extend(AClass, SuperClass);');
 	});
+
+	it('should replace usage of multiple caplin inheritance statements with topiarist extend then inherit', () => {
+		// Given.
+		const givenCode = `caplin.extend(AClass, SuperClass);
+							caplin.implement(AClass, Interface);`;
+		const moduleAST = parse(givenCode);
+
+		// When.
+		updateModuleClassesToUseTopiarist(moduleAST);
+
+		// Then.
+		const expectedCode = `topiarist.extend(AClass, SuperClass);
+							topiarist.inherit(AClass, Interface);`;
+
+		equal(print(moduleAST).code, expectedCode);
+	});
 });

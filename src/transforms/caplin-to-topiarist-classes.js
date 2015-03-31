@@ -49,12 +49,13 @@ const caplinInheritanceToExtendTransformer = composeTransformers(
 	identifier('extend')
 );
 
-//const caplinInheritanceToInheritTransformer = composeTransformers(
-//	identifier('topiarist'),
-//	extractParent(),
-//	extractProperties('property'),
-//	identifier('inherit')
-//);
+// Transformer that converts caplin.extend/implement to topiarist.inherit
+const caplinInheritanceToInheritTransformer = composeTransformers(
+	identifier('topiarist'),
+	extractParent(),
+	extractProperties('property'),
+	identifier('inherit')
+);
 
 /**
  * Converts
