@@ -62,4 +62,20 @@ describe('caplin-to-topiarist-classes', () => {
 
 		equal(print(moduleAST).code, expectedCode);
 	});
+
+	it('should replace caplin requires with topiarist requires', () => {
+		// Given.
+		const givenCode = `var caplin = require('caplin');
+							caplin.extend(AClass, SuperClass);`;
+		const moduleAST = parse(givenCode);
+
+		// When.
+		updateModuleClassesToUseTopiarist(moduleAST);
+
+		// Then.
+		const expectedCode = `var topiarist = require("topiarist");
+							topiarist.extend(AClass, SuperClass);`;
+
+		equal(print(moduleAST).code, expectedCode);
+	});
 });
